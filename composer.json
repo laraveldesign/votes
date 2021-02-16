@@ -1,0 +1,30 @@
+{
+    "name": "laraveldesign/votes",
+    "description": "Votes plugin for Laravel.",
+    "keywords": [
+        "laraveldesign",
+        "votes"
+    ],
+    "homepage": "https://github.com/laraveldesign/votes",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Shane Barron",
+            "email": "cshanebarron@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laraveldesign\\Votes\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laraveldesign\\Votes\\VotesServiceProvider"
+            ]
+        }
+    }
+}
