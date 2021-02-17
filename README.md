@@ -6,10 +6,9 @@
 
 Provides a voting mechanism for Laravel projects.  
 
-## Screenshot
-![](http://laraveldesign.test/img/packages/votes.png)
 ## Demo
 Visit https://laraveldesign.com/packages for a demo.
+
 ## Installation
 
 You can install the package via composer:
