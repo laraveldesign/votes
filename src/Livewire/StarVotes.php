@@ -78,17 +78,26 @@ class StarVotes extends Component
      */
     public function vote($value)
     {
-        if(Auth::check()) {
-            Vote::create([
-                'user_id' => auth()->user()->id,
-                'model_id' => $this->model->id,
-                'model_class' => get_class($this->model),
-                'value' => $value
-            ]);
-            $this->calculate();
-        }
+        if (Auth::check()) {
+            // check if user has already voted
+            $test = Vote::where([
+                ['user_id', '=', auth()->user()->id],
+                ['model_id', '=', $this->model->id],
+                ['model_class', '=', get_class($this->model)]
+            ])->count();
+            if ($test == 0) {
+                Vote::create([
+                    'user_id' => auth()->user()->id,
+                    'model_id' => $this->model->id,
+                    'model_class' => get_class($this->model),
+                    'value' => $value
+                ]);
+                $this->calculate();
+            }
 
+        }
     }
+
 
     /*
      * Livewire render function

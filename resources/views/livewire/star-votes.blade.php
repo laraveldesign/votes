@@ -2,28 +2,28 @@
     <div class="flex">
         <div @auth @mouseover="voting=true" @endauth>
             <div class="flex" @mouseover.away="voting=false" x-show="voting" style="display:none;">
-                <button wire:click="vote(1)" @mouseover="vote=1">
+                <button class="focus:outline-none" wire:click="vote(1)" @mouseover="vote=1">
                     <x-votes::empty x-show="vote==0"></x-votes::empty>
                     <x-votes::full x-show="vote>=1"></x-votes::full>
                 </button>
-                <button wire:click="vote(2)" @mouseover="vote=2">
+                <button class="focus:outline-none" wire:click="vote(2)" @mouseover="vote=2">
                     <x-votes::empty x-show="vote<2"></x-votes::empty>
                     <x-votes::full x-show="vote>=2"></x-votes::full>
                 </button>
-                <button wire:click="vote(3)" @mouseover="vote=3">
+                <button class="focus:outline-none" wire:click="vote(3)" @mouseover="vote=3">
                     <x-votes::empty x-show="vote<3"></x-votes::empty>
                     <x-votes::full x-show="vote>=3"></x-votes::full>
                 </button>
-                <button wire:click="vote(4)" @mouseover="vote=4">
+                <button class="focus:outline-none" wire:click="vote(4)" @mouseover="vote=4">
                     <x-votes::empty x-show="vote<4"></x-votes::empty>
                     <x-votes::full x-show="vote>=4"></x-votes::full>
                 </button>
-                <button wire:click="vote(5)" @mouseover="vote=5">
+                <button class="focus:outline-none" wire:click="vote(5)" @mouseover="vote=5">
                     <x-votes::empty x-show="vote<5"></x-votes::empty>
                     <x-votes::full x-show="vote==5"></x-votes::full>
                 </button>
             </div>
-                <div class="flex" x-show="!voting">
+            <div class="flex" x-show="!voting">
                 {{--                Star 1--}}
                 @if($average == 0)
                     <x-votes::empty></x-votes::empty>
@@ -86,7 +86,7 @@
             <button @click="open = !open"
                     class="focus:outline-none inline-block text-gray-700 hover:text-black flex rounded px-2 py-1 bg-white"
                     :class="{'font-semibold': open, 'shadow-none': open}">
-                {{$votes}} Votes
+                {{$votes}} {{\Illuminate\Support\Str::plural('Vote',$votes)}}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" :class="{'rotate-180': open}"
                      class="ml-1 transform inline-block fill-current text-gray-500 w-6 h-6">
                     <path fill-rule="evenodd"
